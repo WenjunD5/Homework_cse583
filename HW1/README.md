@@ -1,0 +1,2 @@
+python's datetime is commonly used to represent individual dates and times. Numpy's datetime is designed for time operations in arrays and pandas.timestamp is used for dataframe(directly extract years, months or hours information). I used pd.to_date() to convert the date into pandas datetime format.
+I did the homework by myself and I searched on google to see how matplotlib.plot works for plotting data(category and find the specific column) 
