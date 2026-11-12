@@ -9,13 +9,17 @@ print(df.dtypes)
 print(df.columns)
 
 # Date: Date and time of the observation Date                           expected type: datetime
-# Fremont Bridge Sidewalks, south of N 34th St Total                    float 64
-# Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk    float 64
-# Fremont Bridge Sidewalks, south of N 34th St Cyclist East Sidewalk    float 64
+# Fremont Bridge Sidewalks, south of N 34th St Total                    Int 64
+# Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk    Int 64
+# Fremont Bridge Sidewalks, south of N 34th St Cyclist East Sidewalk    Int 64
 
 df['Date'] = pd.to_datetime(df["Date"], format = "%m/%d/%Y %I:%M:%S %p")
 west = "Fremont Bridge Sidewalks, south of N 34th St Cyclist West Sidewalk"
 east = "Fremont Bridge Sidewalks, south of N 34th St Cyclist East Sidewalk"
+
+count_columns = [df.columns[1:4]]
+df[count_columns] = df[count_columns].astype("Int64")
+
 df['sum'] = df[west] + df[east]
 df['Hour'] = df['Date'].dt.hour
 df['Year'] = df['Date'].dt.year
